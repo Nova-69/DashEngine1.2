@@ -56,6 +56,10 @@
 			"Enabled": true
 		},
 		{
+			"Name": "WebBrowserWidget",
+			"Enabled": true
+		},
+		{
 			"Name": "EditorScriptingUtilities",
 			"Enabled": true
 		},
@@ -128,18 +132,6 @@
 			"SupportedTargetPlatforms": [
 				"Lumin"
 			]
-		},
-		{
-			"Name": "DatasmithContent",
-			"Enabled": false
-		},
-		{
-			"Name": "LocationServicesBPLibrary",
-			"Enabled": false
-		},
-		{
-			"Name": "VariantManagerContent",
-			"Enabled": false
 		}
 	],
 	"TargetPlatforms": [
