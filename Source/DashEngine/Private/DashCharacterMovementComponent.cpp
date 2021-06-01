@@ -1,7 +1,7 @@
-// Copyright 2019 Edited by GalaxySoftware for DashEngine
+// Copyright 2021 Edited by GalaxySoftware for DashEngine
 // Read LICENSE file for details about permission to use this software. //
 // Uses code from Epic Games:
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2021 Epic Games, Inc. All Rights Reserved.
 
 
 #include "DashCharacterMovementComponent.h"
@@ -9,19 +9,27 @@
 
 #include "DrawDebugHelpers.h"
 #include "Kismet/KismetSystemLibrary.h"
+
+#include "Components/PrimitiveComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/BrushComponent.h"
+#include "Components/SkeletalMeshComponent.h"
+
 #include "GameFramework/MovementComponent.h"
 #include "GameFramework/NavMovementComponent.h"
+#include "GameFramework/PlayerController.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/PhysicsVolume.h"
 #include "GameFramework/GameNetworkManager.h"
+
 #include "AI/Navigation/PathFollowingAgentInterface.h"
 #include "AI/Navigation/AvoidanceManager.h"
+#include "AI/NavigationSystemBase.h"
+#include "AI/Navigation/NavigationDataInterface.h"
+
 #include "Navigation/PathFollowingComponent.h" // @todo Epic: this is here only due to circular dependency to AIModule.
-//#include "DestructibleInterface.h"
-#include "DestructibleComponent.h"
+
 #include "Engine/Canvas.h"
 #include "Net/PerfCountersHelpers.h"
 
@@ -3819,7 +3827,7 @@ void UDashCharacterMovementComponent::ApplyRepulsionForce(float DeltaSeconds)
 				}
 
 				// Early out if this is not a destructible and the body is not simulated.
-				if (!OverlapBody->IsInstanceSimulatingPhysics() && !Cast<UDestructibleComponent>(OverlapComp))
+				if (!OverlapBody->IsInstanceSimulatingPhysics())
 				{
 					continue;
 				}

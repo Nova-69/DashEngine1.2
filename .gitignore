@@ -1,8 +1,9 @@
 .vs/
+.vscode/
 DashEngine.uproject
 Intermediate/
 Saved/
 Saved
 Binaries/
 Content/StarterContent/Architecture/Floor_400x400.uasset
-dad/
+*.rsp
