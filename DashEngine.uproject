@@ -116,10 +116,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "RenderDocPlugin",
-			"Enabled": true
-		},
-		{
 			"Name": "MagicLeapMedia",
 			"Enabled": false,
 			"SupportedTargetPlatforms": [
